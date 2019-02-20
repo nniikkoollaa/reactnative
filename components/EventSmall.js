@@ -1,7 +1,9 @@
 import React from "react";
-import {View, StyleSheet, Text, ImageBackground} from "react-native";
+import {View, StyleSheet, Text, ImageBackground, Dimensions} from "react-native";
 
-export default class Event extends React.Component{
+const { width } = Dimensions.get('window');
+
+export default class EventSmall extends React.Component{
     render(){
         return <View>
         <ImageBackground 
@@ -14,14 +16,15 @@ export default class Event extends React.Component{
 }
 
 const styles = StyleSheet.create({
-    container:{
-        margin:20,
-        height:150,        
-        backgroundColor:"#0022ff",
+    container:{        
+        backgroundColor: 'blue',
+        width: width - 40,
+        margin: 5,
+        height: 200,
         borderRadius:15,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 7 },
         shadowOpacity: 0.2,
         shadowRadius: 5,
-    }
+      }
 });

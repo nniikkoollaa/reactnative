@@ -8,6 +8,7 @@ import {
     Dimensions,
 } from "react-native";
 import Event from "../components/Event";
+import EventSmall from "../components/EventSmall"
 
 const { width } = Dimensions.get('window');
 
@@ -65,9 +66,7 @@ class Home extends React.Component{
                     bottom: 0,
                     right: 15,
                     }}
-                    renderItem={({item}) => 
-                        <View style={styles.view}><Text>{item.name}</Text></View>
-                    }
+                    renderItem={({item}) =><EventSmall name={item.name}></EventSmall>}
                     keyExtractor={(item, index) => index.toString()}>
                 </FlatList>
                 <FlatList style={{flexGrow:40}}
@@ -95,8 +94,11 @@ const styles = StyleSheet.create({
         width: width - 40,
         margin: 5,
         height: 200,
-        borderRadius: 10,
-        //paddingHorizontal : 30
+        borderRadius:15,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 7 },
+        shadowOpacity: 0.2,
+        shadowRadius: 5,
       }
 });
 
