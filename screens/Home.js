@@ -20,18 +20,24 @@ class Home extends React.Component{
     items = [
         {
             _id: 1,
-            name: "Event 1 name",
+            name: "Novi Sad AI #4.0 Event",
+            location: "Startit Centar Novi Sad",
+            date: "02/27/2019",
             description: "Event 1 description"
         },
         {
             _id: 2,
-            name: "Event 2 name",
-            description: "Event 2 description"
+            name: "Vlatko Stefanovski Akustični Koncert",
+            location: "Srpsko Narodno Pozoriste",
+            date: "02/10/2019",
+            description: "Event 1 description"
         },
         {
             _id: 3,
-            name: "Event 3 name",
-            description: "Event 3 description"
+            name: "Green Love / Deborah De Luca",
+            location: "SPENS Novi Sad",
+            date: "03/09/2019",
+            description: "Event 1 description"
         },
     ];
 
@@ -49,12 +55,12 @@ class Home extends React.Component{
     render(){
         return(
             <View style={styles.container}>
-                <View style={{flexGrow:20, paddingTop:30}}>
-                    <Text>Home</Text>
+                <View style={{paddingTop:30}}>
+                    <Text style={styles.header}>Home</Text>
                 </View>
+                <View style={{flex:2}} >
                 <FlatList 
                     ref="listRef"
-                    style={{flexGrow:40}} 
                     data={this.items}
                     horizontal={true}
                     decelerationRate={0}
@@ -66,14 +72,17 @@ class Home extends React.Component{
                     bottom: 0,
                     right: 15,
                     }}
-                    renderItem={({item}) =><EventSmall name={item.name}></EventSmall>}
+                    renderItem={({item}) =><EventSmall name={item.name} location={item.location}></EventSmall>}
                     keyExtractor={(item, index) => index.toString()}>
                 </FlatList>
-                <FlatList style={{flexGrow:40}}
+                </View>
+                <View style={{flex:5}}>
+                <FlatList
                     data={this.items}
                     renderItem={(item)=><Event name={item.name}></Event>}
                     keyExtractor={(item, index) => index.toString()}>
                 </FlatList>
+                </View>
             </View>
         );
     }
@@ -81,25 +90,13 @@ class Home extends React.Component{
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1        
+        flex: 1
     },
-    eventTile: {
-        width:30,
-        height: 30,
-        margin:3,
-        backgroundColor:"#ff0000"
-    },
-    view: {        
-        backgroundColor: 'blue',
-        width: width - 40,
-        margin: 5,
-        height: 200,
-        borderRadius:15,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 7 },
-        shadowOpacity: 0.2,
-        shadowRadius: 5,
-      }
+    header: {
+        fontSize:40,
+        marginTop: 10,
+        marginLeft:5
+    }
 });
 
 export default Home;
