@@ -13,9 +13,9 @@ export default class EventSmall extends React.Component{
                 <Text style={styles.eventLocation}>{this.props.location}</Text>
             </View>
         <ImageBackground 
-            source={require('../assets/images/51398338_10161471283725261_2572874934325870592_n.jpg')} 
+            source={{uri:'https://raw.githubusercontent.com/nniikkoollaa/reactnative/master/assets/images/' + this.props.eventId + '.jpg'}} 
             style={styles.image}
-            imageStyle={{ borderRadius: 15 }}>
+            imageStyle={{ borderRadius: 5 }}>
             </ImageBackground></View>;
     }
 }
@@ -26,14 +26,15 @@ const styles = StyleSheet.create({
         margin: 5,
       },
       eventName:{
-          fontWeight:'bold'
+          fontWeight:'bold',
+          fontSize:20,
       },
       eventLocation: {
-          color:'gray'
+          color:'gray',
       },
       image:{
-          flexGrow:20,
-        borderRadius:15,
+        marginTop:10,
+        flexGrow:20,
         width: width - 40,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 7 },

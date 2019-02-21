@@ -5,7 +5,6 @@ export default class Event extends React.Component{
     render(){
         return <View>
         <ImageBackground 
-            source={require('../assets/images/51398338_10161471283725261_2572874934325870592_n.jpg')} 
             style={styles.container}
             imageStyle={{ borderRadius: 15 }}>
             <Text>{this.props.name}</Text>            
